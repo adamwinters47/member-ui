@@ -1,0 +1,27 @@
+
+<div>
+  <input [(ngModel)]="searchText" (change)="filterMembers()" class="filter-input">
+  <span class="filter-clear" *ngIf="searchText.length>0" (click)="clearFilter()">X</span>
+</div>
+
+<div class="row">
+  <div class="col-xs-10">
+    <ul class="list-group">
+      <li class="list-group-item"
+      *ngFor="let member of members">
+        {{member.lastName}}, {{member.firstName}} <span *ngIf="member.cellPhone">(c) {{member.cellPhone}}</span>  <span *ngIf="member.homePhone"> (h) {{member.homePhone}} </span>
+        <span *ngIf="member.officePhone"> (o) {{member.officePhone}} </span> {{member.email}}<br/>
+        <span *ngIf="member.spouseName"> {{member.spouseName}} </span><span *ngIf="member.spousePhone"> (sc) {{member.spousePhone}} </span><span *ngIf="member.spouseEmail"> {{member.spouseEmail}} </span> <br/>
+        {{member.childrenNames}} <br/>
+        {{member.address}} <br/>
+        {{member.memberType}} <br/>
+        <ul class="list-group">
+          <li class="list-group-item"
+              *ngFor="let boat of member.memberBoats">
+            {{boat.boatName}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
