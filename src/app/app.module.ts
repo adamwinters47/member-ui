@@ -7,21 +7,29 @@ import { DirectoryEntryComponent } from './directory-entry/directory-entry.compo
 import { FormsModule} from "@angular/forms";
 import {MemberService} from "./member.service";
 import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
+import { MemberFormComponent } from './member-form/member-form.component';
+import {RouterTestingModule} from "@angular/router/testing";
+import {RouterModule} from "@angular/router";
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     DirectoryEntryComponent,
+    MemberFormComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterTestingModule,
+    RouterModule.forRoot([]),
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [
     MemberService,
-    HttpClient
   ],
   bootstrap: [AppComponent]
 })

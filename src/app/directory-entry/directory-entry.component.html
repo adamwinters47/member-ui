@@ -1,6 +1,6 @@
 
 <div>
-  <input [(ngModel)]="searchText" (change)="filterMembers()" class="filter-input">
+  <input [(ngModel)]="searchText" (keyup)="filterMembers()" class="filter-input">
   <span class="filter-clear" *ngIf="searchText.length>0" (click)="clearFilter()">X</span>
 </div>
 
@@ -10,9 +10,10 @@
       <li class="list-group-item"
       *ngFor="let member of members">
         {{member.lastName}}, {{member.firstName}} <span *ngIf="member.cellPhone">(c) {{member.cellPhone}}</span>  <span *ngIf="member.homePhone"> (h) {{member.homePhone}} </span>
-        <span *ngIf="member.officePhone"> (o) {{member.officePhone}} </span> {{member.email}}<br/>
-        <span *ngIf="member.spouseName"> {{member.spouseName}} </span><span *ngIf="member.spousePhone"> (sc) {{member.spousePhone}} </span><span *ngIf="member.spouseEmail"> {{member.spouseEmail}} </span> <br/>
-        {{member.childrenNames}} <br/>
+        <span *ngIf="member.officePhone"> (o) {{member.officePhone}} </span> <a href="mailto:{{member.email}}"> {{member.email}} </a><br/>
+        <span *ngIf="member.spouseName"> {{member.spouseName}} </span><span *ngIf="member.spousePhone"> (sc) {{member.spousePhone}} </span>
+        <span *ngIf="member.spouseEmail"> <a href="mailto:{{member.spouseEmail}}"> {{member.spouseEmail}} </a> </span> <br/>
+        <span *ngIf="member.childrenNames"> {{member.childrenNames}} </span><br/>
         {{member.address}} <br/>
         {{member.memberType}} <br/>
         <ul class="list-group">

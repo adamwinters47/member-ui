@@ -16,4 +16,8 @@ export class MemberService {
     return this.http.get<Member[]>(this.membersUrl + "/get")
   }
 
+  public save(member: Member) {
+    return this.http.post<Member>(this.membersUrl + "/save", member);
+  }
+
 }

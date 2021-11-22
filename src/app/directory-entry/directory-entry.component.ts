@@ -17,8 +17,6 @@ export class DirectoryEntryComponent implements OnInit {
   ]
 
   retrievedMembers: Member[] = [
-    new Member("Adam", "Winters", "123 fake st", "cellPhone", "homePhone", "officePhone", "email", "spouseName", "spousePhone", "spouseEmail", "childrenNames", true, true, "committeeType", "officeType", 42069, "memberType", this.boats),
-    new Member("Adam", "Winters", "123 fake st", "cellPhone", "homePhone", "officePhone", "email", "spouseName", "spousePhone", "spouseEmail", "childrenNames", true, true, "committeeType", "officeType", 42069, "memberType", this.boats)
 ]
 
   members: Member[] = [];
@@ -26,13 +24,21 @@ export class DirectoryEntryComponent implements OnInit {
   constructor(private memberService: MemberService) { }
 
   ngOnInit(): void {
+    this.retrieveAllMembers();
+    //TODO: Wait to show until this call is complete?
+    this.assignRetrievedMembers();
     this.members = this.retrievedMembers;
-    this.members[0].cellPhone = "";
-    this.members[1].firstName = "Kelsey";
+  }
+
+  retrieveAllMembers() {
     this.memberService.findAll().subscribe( data => {
       this.retrievedMembers = data;
+      this.members = this.retrievedMembers;
     })
-    console.log(this.retrievedMembers)
+  }
+
+  assignRetrievedMembers() {
+    this.members = this.retrievedMembers;
   }
 
   clearFilter() {
@@ -42,7 +48,7 @@ export class DirectoryEntryComponent implements OnInit {
 
   filterMembers() {
     this.members = this.retrievedMembers.filter( m => {
-      return m.firstName.toLowerCase().includes(this.searchText) || m.lastName.toLowerCase().includes(this.searchText)
+      return m.firstName.toLowerCase().startsWith(this.searchText) || m.lastName.toLowerCase().startsWith(this.searchText)
     })
   }
 
