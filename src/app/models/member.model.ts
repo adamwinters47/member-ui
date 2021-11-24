@@ -2,6 +2,7 @@ import {Boat} from "./boat.model";
 
 export class Member {
 
+  id: number;
   firstName: string;
   lastName: string;
   address: string;
@@ -19,6 +20,6 @@ export class Member {
   officeType: string;
   annualDues: number;
   memberType: string;
-  memberBoats: Boat[];
+  boatList: Boat[];
 
 }

@@ -11,6 +11,7 @@ import { MemberFormComponent } from './member-form/member-form.component';
 import {RouterTestingModule} from "@angular/router/testing";
 import {RouterModule} from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
+import { BoatFormComponent } from './boat-form/boat-form.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
     NavBarComponent,
     DirectoryEntryComponent,
     MemberFormComponent,
+    BoatFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Member} from "../models/member.model";
 import {Boat} from "../models/boat.model";
 import {MemberService} from "../member.service";
+import {BoatService} from "../boat.service";
 
 @Component({
   selector: 'app-directory-entry',
@@ -10,35 +11,42 @@ import {MemberService} from "../member.service";
 })
 export class DirectoryEntryComponent implements OnInit {
 
-  searchText: string = "";
+  searchText: string = ""
 
-  boats: Boat[] = [
-    new Boat("boatName", "boatModel", 69, 420, 42069, "boatRegistration", true, true)
-  ]
+  retrievedMembers: Member[] = []
 
-  retrievedMembers: Member[] = [
-]
+  members: Member[] = []
 
-  members: Member[] = [];
-
-  constructor(private memberService: MemberService) { }
+  constructor(private memberService: MemberService, private boatService: BoatService) { }
 
   ngOnInit(): void {
-    this.retrieveAllMembers();
+    this.retrieveAllMembers()
     //TODO: Wait to show until this call is complete?
     this.assignRetrievedMembers();
     this.members = this.retrievedMembers;
-  }
+  } 
 
   retrieveAllMembers() {
     this.memberService.findAll().subscribe( data => {
       this.retrievedMembers = data;
       this.members = this.retrievedMembers;
+      this.assignBoatsToMembers();
+
     })
   }
 
   assignRetrievedMembers() {
     this.members = this.retrievedMembers;
+  }
+
+  assignBoatsToMembers() {
+    console.log("Assigning Boats")
+    for(const member of this.retrievedMembers) {
+      this.boatService.getBoatsByMemberId(member.id).subscribe( data => {
+          member.boatList = data
+        }
+      )
+    }
   }
 
   clearFilter() {

@@ -1,13 +1,15 @@
+import {Member} from "./member.model";
+
 export class Boat {
-  constructor(public boatName: string, public boatModel: string, public length: number, public beam: number,
-              public depth: number, public registration: string, public isBoatRegistrationCurrent: boolean, public isCityRegistrationCurrent: boolean) {
-    this.boatName = boatName;
-    this.boatModel = boatModel;
-    this.length = length;
-    this.beam = beam;
-    this.depth = depth;
-    this.registration = registration;
-    this.isBoatRegistrationCurrent = isBoatRegistrationCurrent;
-    this.isCityRegistrationCurrent = isCityRegistrationCurrent;
-  }
+
+  boatName: string;
+  boatModel: string;
+  length: number;
+  beam: number;
+  depth: number;
+  registration: string;
+  isBoatRegistrationCurrent: boolean;
+  isCityRegistrationCurrent: boolean;
+  member: Member;
+
 }

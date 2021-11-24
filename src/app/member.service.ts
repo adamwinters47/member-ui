@@ -13,7 +13,8 @@ export class MemberService {
   }
 
   public findAll(): Observable<Member[]> {
-    return this.http.get<Member[]>(this.membersUrl + "/get")
+    const members = this.http.get<Member[]>(this.membersUrl + "/get");
+    return members
   }
 
   public save(member: Member) {

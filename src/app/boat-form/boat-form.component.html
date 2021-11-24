@@ -1,0 +1,65 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #boatForm="ngForm">
+      <div class="form-group">
+        <h3>Choose the Member whose Boat will be Added</h3>
+        <select [(ngModel)]="boat.member" name="boatMember">
+          <option *ngFor="let member of members" [ngValue]="member">
+            {{member.firstName}} {{member.lastName}}  {{member.email}}
+          </option>
+        </select>
+
+
+        <label for="boatName">Boat Name</label>
+        <input type="text" [(ngModel)]="boat.boatName"
+               class="form-control"
+               id="boatName"
+               name="boatName"
+               placeHolder="Enter Boat Name">
+
+        <label for="boatModel">Boat Model</label>
+        <input type="text" [(ngModel)]="boat.boatModel"
+               class="form-control"
+               id="boatModel"
+               name="boatModel"
+               placeholder="Enter Boat Model">
+        <label for="length">Boat Length</label>
+        <input type="number" [(ngModel)]="boat.length"
+               class="form-control"
+               id="length"
+               name="length"
+               placeholder="Enter Boat Length">
+        <label for="beam">Boat Beam</label>
+        <input type="number" [(ngModel)]="boat.beam"
+               class="form-control"
+               id="beam"
+               name="beam"
+               placeholder="Enter Boat Beam">
+        <label for="depth">Boat Depth</label>
+        <input type="number" [(ngModel)]="boat.depth"
+               class="form-control"
+               id="depth"
+               name="depth"
+               placeholder="Enter Boat Depth">
+        <label for="registration">Boat Registration</label>
+        <input type="text" [(ngModel)]="boat.registration"
+               class="form-control"
+               id="registration"
+               name="registration"
+               placeholder="Enter Boat Registration">
+        <label for="boatRegistrationCurrent">Is Boat Registration Current?</label>
+        <input type="checkbox" [(ngModel)]="boat.isBoatRegistrationCurrent"
+               class="form-control"
+               id="boatRegistrationCurrent"
+               name="boatRegistrationCurrent">
+        <label for="cityRegistrationCurrent">Is City Registration Current?</label>
+        <input type="checkbox" [(ngModel)]="boat.isCityRegistrationCurrent"
+               class="form-control"
+               id="cityRegistrationCurrent"
+               name="cityRegistrationCurrent">
+      </div>
+      <button type="submit" [disabled]="!boatForm.form.valid"
+              class="btn, btn-info">Submit</button>
+    </form>
+  </div>
+</div>
