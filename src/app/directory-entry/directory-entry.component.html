@@ -19,7 +19,7 @@
         <ul class="list-group">
           <li class="list-group-item"
               *ngFor="let boat of member.boatList">
-            {{boat.boatName}}
+            <span *ngIf="boat.boatModel">{{boat.boatModel}} </span><span *ngIf="boat.length">{{boat.length}} </span> <span *ngIf="boat.registration">#{{boat.registration}} </span> <span *ngIf="boat.boatName">"{{boat.boatName}}"</span>
           </li>
         </ul>
       </li>

@@ -1,0 +1,127 @@
+<div class="card my-5">
+  <div class="card-body">
+    <h3>Choose the Member To be Edited</h3>
+    <select [(ngModel)]="member" name="member">
+      <option *ngFor="let member of members" [ngValue]="member">
+        {{member.firstName}} {{member.lastName}}  {{member.email}}
+      </option>
+    </select>
+    <form (ngSubmit)="onSubmit()" #memberForm="ngForm">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" [(ngModel)]="member.firstName"
+               class="form-control"
+               id="firstName"
+               name="firstName"
+               placeholder="Enter First Name"
+               required #firstName="ngModel">
+        <div [hidden]="!firstName.pristine" class="alert alert-danger">First Name is Required</div>
+        <label for="lastName">Last Name</label>
+        <input type="text" [(ngModel)]="member.lastName"
+               class="form-control"
+               id="lastName"
+               name="lastName"
+               placeholder="Enter Last Name"
+               required #lastName="ngModel">
+        <div [hidden]="!lastName.pristine" class="alert alert-danger">Last Name is Required</div>
+
+        <label for="address">Address</label>
+        <input type="text" [(ngModel)]="member.address"
+               class="form-control"
+               id="address"
+               name="address"
+               placeholder="Enter Address">
+
+        <label for="cellPhone">Cell Phone #</label>
+        <input type="text" [(ngModel)]="member.cellPhone"
+               class="form-control"
+               id="cellPhone"
+               name="cellPhone"
+               placeholder="Enter Cell Phone #">
+
+        <label for="homePhone">Home Phone #</label>
+        <input type="text" [(ngModel)]="member.homePhone"
+               class="form-control"
+               id="homePhone"
+               name="homePhone"
+               placeholder="Enter Home Phone #">
+
+        <label for="officePhone">Office Phone #</label>
+        <input type="text" [(ngModel)]="member.officePhone"
+               class="form-control"
+               id="officePhone"
+               name="officePhone"
+               placeholder="Enter Office Phone #">
+
+        <label for="email">Email</label>
+        <input type="email" [(ngModel)]="member.email"
+               class="form-control"
+               id="email"
+               name="email"
+               placeholder="Enter Email Address"
+               required #email="ngModel">
+        <div [hidden]="!email.pristine" class="alert-danger alert">Email is Required</div>
+
+        <label for="spouseName">Spouse Name</label>
+        <input type="text" [(ngModel)]="member.spouseName"
+               class="form-control"
+               id="spouseName"
+               name="spouseName"
+               placeholder="Enter Spouse Name">
+
+        <label for="spousePhone">Spouse Phone</label>
+        <input type="text" [(ngModel)]="member.spousePhone"
+               class="form-control"
+               id="spousePhone"
+               name="spousePhone"
+               placeholder="Enter Spouse Phone #">
+
+        <label for="spouseEmail">Spouse Email</label>
+        <input type="text" [(ngModel)]="member.spouseEmail"
+               class="form-control"
+               id="spouseEmail"
+               name="spouseEmail"
+               placeholder="Enter Spouse Email Address">
+
+        <label for="childrenNames">Children Names</label>
+        <input type="text" [(ngModel)]="member.childrenNames"
+               class="form-control"
+               id="childrenNames"
+               name="childrenNames"
+               placeholder="Enter children names, separated by commas (Ex: Dick, Jane, etc.)">
+
+        <label for="isOfficeMember">Is Member Office Member</label>
+        <!--TODO: Better looking checkbox, or float to the left, or all the above -->
+        <input type="checkbox" [(ngModel)]="member.isOfficeMember" #isOfficeMember
+               class="form-control"
+               id="isOfficeMember"
+               name="isOfficeMember">
+
+        <label for="officeType" [hidden]="!isOfficeMember.checked">Office Held (is Member is in office)</label>
+        <input type="text" [(ngModel)]="member.officeType"
+               class="form-control"
+               id="officeType"
+               name="officeType"
+               placeholder="Enter Office held"
+               [hidden]="!isOfficeMember.checked">
+
+        <label for="isCommitteeMember">Is Member Committee Member</label>
+        <input type="checkbox" [(ngModel)]="member.isCommitteeMember"
+               class="form-control"
+               id="isCommitteeMember"
+               name="isCommitteeMember"
+               #isCommitteeMember>
+
+        <label for="committeeType" [hidden]="!isCommitteeMember.checked">Committee Type (if Member is on committee)</label>
+        <input type="text" [(ngModel)]="member.committeeType"
+               class="form-control"
+               id="committeeType"
+               name="committeeType"
+               placeholder="Enter Committee Type that Member belongs to"
+               [hidden]="!isCommitteeMember.checked">
+      </div>
+      <button type="submit" [disabled]="!memberForm.form.valid"
+              class="btn, btn-info">Submit</button>
+    </form>
+  </div>
+</div>

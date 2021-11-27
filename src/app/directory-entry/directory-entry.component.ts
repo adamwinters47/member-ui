@@ -21,10 +21,9 @@ export class DirectoryEntryComponent implements OnInit {
 
   ngOnInit(): void {
     this.retrieveAllMembers()
-    //TODO: Wait to show until this call is complete?
     this.assignRetrievedMembers();
     this.members = this.retrievedMembers;
-  } 
+  }
 
   retrieveAllMembers() {
     this.memberService.findAll().subscribe( data => {
