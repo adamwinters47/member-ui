@@ -3,7 +3,7 @@
     <h3>Choose the Member To be Edited</h3>
     <select [(ngModel)]="member" name="member">
       <option *ngFor="let member of members" [ngValue]="member">
-        {{member.firstName}} {{member.lastName}}  {{member.email}}
+        {{member.lastName}}, {{member.firstName}} - {{member.email}}
       </option>
     </select>
     <span *ngIf="member.firstName">
