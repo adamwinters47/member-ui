@@ -5,12 +5,14 @@ import {DirectoryEntryComponent} from "./directory-entry/directory-entry.compone
 import {MemberFormComponent} from "./member-form/member-form.component";
 import {BoatFormComponent} from "./boat-form/boat-form.component";
 import {EditMemberComponent} from "./edit-member/edit-member.component";
+import {EditBoatComponent} from "./edit-boat/edit-boat.component";
 
 const appRoutes: Routes = [
   { path: 'members', component: DirectoryEntryComponent },
   { path: 'addMember', component: MemberFormComponent },
   { path: 'addBoat', component: BoatFormComponent },
-  { path: 'editMember', component: EditMemberComponent }
+  { path: 'editMember', component: EditMemberComponent },
+  { path: 'editBoat', component: EditBoatComponent }
 ];
 
 @NgModule({

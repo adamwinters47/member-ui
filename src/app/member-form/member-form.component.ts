@@ -17,15 +17,15 @@ export class MemberFormComponent implements OnInit {
     private router: Router,
     private memberService: MemberService
   ) {
-    this.member = new Member();
+    this.member = new Member()
   }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    console.log(this.member);
-    this.memberService.save(this.member).subscribe(result => this.gotoMemberDirectory());
+    console.log(this.member)
+    this.memberService.save(this.member).subscribe(result => this.gotoMemberDirectory())
   }
 
   gotoMemberDirectory() {

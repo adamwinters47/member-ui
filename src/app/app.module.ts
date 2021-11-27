@@ -13,6 +13,7 @@ import {RouterModule} from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
 import { BoatFormComponent } from './boat-form/boat-form.component';
 import { EditMemberComponent } from './edit-member/edit-member.component';
+import { EditBoatComponent } from './edit-boat/edit-boat.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { EditMemberComponent } from './edit-member/edit-member.component';
     MemberFormComponent,
     BoatFormComponent,
     EditMemberComponent,
+    EditBoatComponent,
   ],
   imports: [
     BrowserModule,

@@ -21,4 +21,8 @@ export class BoatService {
     const getMemberUrl = `http://localhost:8080/boat/get/member/${memberId}`
     return this.http.get<Boat[]>(getMemberUrl)
   }
+
+  public getAllBoats() {
+    return this.http.get<Boat[]>(this.boatsUrl + "/get")
+  }
 }
