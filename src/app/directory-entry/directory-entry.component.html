@@ -1,13 +1,12 @@
 
 <div>
-  <input [(ngModel)]="searchText" (keyup)="filterMembers()" class="filter-input" placeholder="Search by First Name, Last Name, or Email" >
+  <input [(ngModel)]="searchText" (keyup)="filterMembers()" class="filter-input text-input" placeholder="Search by First Name, Last Name, or Email">
   <span class="filter-clear" *ngIf="searchText.length>0" (click)="clearFilter()">X</span>
 </div>
 
 <div class="row">
-  <div class="col-xs-10">
     <ul class="list-group">
-      <li class="list-group-item"
+      <li class="list-group-item card entry"
       *ngFor="let member of members">
         {{member.lastName}}, {{member.firstName}} <span *ngIf="member.cellPhone">(c) {{member.cellPhone}}</span>  <span *ngIf="member.homePhone"> (h) {{member.homePhone}} </span>
         <span *ngIf="member.officePhone"> (o) {{member.officePhone}} </span> <a href="mailto:{{member.email}}"> {{member.email}} </a><br/>
@@ -17,12 +16,11 @@
         {{member.address}} <br/>
         {{member.memberType}} <br/>
         <ul class="list-group">
-          <li class="list-group-item"
+          <li class="list-group-item entry"
               *ngFor="let boat of member.boatList">
             <span *ngIf="boat.boatModel">{{boat.boatModel}} </span><span *ngIf="boat.length">{{boat.length}} </span> <span *ngIf="boat.registration">#{{boat.registration}} </span> <span *ngIf="boat.boatName">"{{boat.boatName}}"</span>
           </li>
         </ul>
       </li>
     </ul>
-  </div>
 </div>
