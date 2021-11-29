@@ -6,13 +6,15 @@ import {MemberFormComponent} from "./member-form/member-form.component";
 import {BoatFormComponent} from "./boat-form/boat-form.component";
 import {EditMemberComponent} from "./edit-member/edit-member.component";
 import {EditBoatComponent} from "./edit-boat/edit-boat.component";
+import {AssignSlipComponent} from "./assign-slip/assign-slip.component";
 
 const appRoutes: Routes = [
   { path: 'members', component: DirectoryEntryComponent },
   { path: 'addMember', component: MemberFormComponent },
   { path: 'addBoat', component: BoatFormComponent },
   { path: 'editMember', component: EditMemberComponent },
-  { path: 'editBoat', component: EditBoatComponent }
+  { path: 'editBoat', component: EditBoatComponent },
+  { path: 'assignSlip', component: AssignSlipComponent }
 ];
 
 @NgModule({

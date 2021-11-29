@@ -55,8 +55,10 @@ export class DirectoryEntryComponent implements OnInit {
 
   filterMembers() {
     this.members = this.retrievedMembers.filter( m => {
-      return m.firstName.toLowerCase().startsWith(this.searchText) || m.lastName.toLowerCase().startsWith(this.searchText)
+      return m.firstName.toLowerCase().startsWith(this.searchText.toLowerCase()) || m.lastName.toLowerCase().startsWith(this.searchText.toLowerCase())
+      || m.email.toLowerCase().startsWith(this.searchText.toLowerCase())
     })
+
   }
 
 }

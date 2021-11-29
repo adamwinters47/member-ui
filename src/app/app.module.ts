@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BoatFormComponent } from './boat-form/boat-form.component';
 import { EditMemberComponent } from './edit-member/edit-member.component';
 import { EditBoatComponent } from './edit-boat/edit-boat.component';
+import { AssignSlipComponent } from './assign-slip/assign-slip.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EditBoatComponent } from './edit-boat/edit-boat.component';
     BoatFormComponent,
     EditMemberComponent,
     EditBoatComponent,
+    AssignSlipComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,35 @@
+
+<h3>Select The Boat to Assign to a Slip</h3>
+<select [(ngModel)]="boat" name="boat">
+  <option *ngFor="let boat of boats" [ngValue]="boat">
+    {{boat.member.firstName}} {{boat.member.lastName}}  {{boat.member.email}} - {{boat.boatName}} {{boat.boatModel}}
+  </option>
+</select>
+<!--<input type="checkbox" [(ngModel)]="member.isOfficeMember" #isOfficeMember-->
+<!--       class="form-control"-->
+<!--       id="isOfficeMember"-->
+<!--       name="isOfficeMember">-->
+<input type="checkbox" [(ngModel)]="onlyShowUnassigned"
+       class="btn-check"
+        id="OnlyShowUnassignedFilter"
+        (change)="filterUnassigned()">
+<label for="OnlyShowUnassignedFilter">Only Show Unassigned Boats</label>
+
+
+<div class="row">
+  <div class="col-3 slip" *ngFor="let slip of slipAssignments">
+    <span *ngIf="!slip.boatName">
+      <button type="submit" (click)="assign(slip)"
+              class="btn, btn-info slip-button">Assign Boat</button>
+    </span>
+    <span *ngIf="slip.boatName">
+    <button type="submit" class="btn-warning btn-danger slip-button" (click)="unassign(slip)">
+      Unassign Boat
+    </button>
+  </span>  {{slip.dock.dockName}}-{{slip.slipNum}}
+    <span *ngIf="slip.boatName">
+      - {{slip.boatName}} {{slip.boatModel}}
+    </span>
+  </div>
+
+</div>

@@ -1,6 +1,6 @@
 
 <div>
-  <input [(ngModel)]="searchText" (keyup)="filterMembers()" class="filter-input">
+  <input [(ngModel)]="searchText" (keyup)="filterMembers()" class="filter-input" placeholder="Search by First Name, Last Name, or Email" >
   <span class="filter-clear" *ngIf="searchText.length>0" (click)="clearFilter()">X</span>
 </div>
 

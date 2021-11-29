@@ -1,0 +1,9 @@
+.slip {
+  border: #000000 1px solid;
+  margin: 5px;
+  padding: 3px;
+}
+
+.slip-button {
+  margin-left: 15px;
+}
