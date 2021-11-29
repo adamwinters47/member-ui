@@ -21,4 +21,8 @@ export class MemberService {
     return this.http.post<Member>(this.membersUrl + "/save", member);
   }
 
+  public delete(memberId: number) {
+    return this.http.delete(this.membersUrl + '/remove/' + memberId)
+  }
+
 }

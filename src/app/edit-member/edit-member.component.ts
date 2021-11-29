@@ -39,4 +39,9 @@ export class EditMemberComponent implements OnInit {
   gotoMemberDirectory() {
     this.router.navigate(['/members'])
   }
+
+  deleteMember() {
+    this.memberService.delete(this.member.id).subscribe()
+    this.gotoMemberDirectory()
+  }
 }

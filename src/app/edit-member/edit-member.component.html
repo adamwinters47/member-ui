@@ -123,7 +123,11 @@
         </div>
         <button type="submit" [disabled]="!memberForm.form.valid"
                 class="btn, btn-info">Submit</button>
+
       </form>
+      <span *ngIf="member.firstName">
+        <button type="submit" class="btn-warning btn-danger delete" (click)="deleteMember()">Delete Selected Member</button>
+      </span>
     </span>
   </div>
 </div>
