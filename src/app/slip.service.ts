@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Slip} from "./models/slip.model";
 import {SlipAssignment} from "./models/slip-assignments.model";
 import {Member} from "./models/member.model";
+import {AppConstantsService} from "./app-constants.service";
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,10 @@ export class SlipService {
 
   private readonly slipsUrl: string
 
-  constructor(private http: HttpClient) {
-    this.slipsUrl = 'http://localhost:8080/slip'
+  constructor(
+    private http: HttpClient,
+    private appConstants: AppConstantsService) {
+    this.slipsUrl = this.appConstants.API_URL + '/slip'
   }
 
   public getAllSlips() {

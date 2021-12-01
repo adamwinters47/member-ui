@@ -3,6 +3,7 @@ import {Member} from "../models/member.model";
 import {Boat} from "../models/boat.model";
 import {MemberService} from "../member.service";
 import {BoatService} from "../boat.service";
+import {MemberDirectoryEntry} from "../models/member-directory-entry.model";
 
 @Component({
   selector: 'app-directory-entry',
@@ -13,11 +14,12 @@ export class DirectoryEntryComponent implements OnInit {
 
   searchText: string = ""
 
-  retrievedMembers: Member[] = []
+  retrievedMembers: MemberDirectoryEntry[] = []
 
-  members: Member[] = []
+  members: MemberDirectoryEntry[] = []
 
-  constructor(private memberService: MemberService, private boatService: BoatService) { }
+
+  constructor(private memberService: MemberService) { }
 
   ngOnInit(): void {
     this.retrieveAllMembers()
@@ -26,26 +28,16 @@ export class DirectoryEntryComponent implements OnInit {
   }
 
   retrieveAllMembers() {
-    this.memberService.findAll().subscribe( data => {
+    this.memberService.findAllEntries().subscribe( data => {
       this.retrievedMembers = data;
       this.members = this.retrievedMembers;
-      this.assignBoatsToMembers();
+      //this.assignBoatsToMembers();
 
     })
   }
 
   assignRetrievedMembers() {
     this.members = this.retrievedMembers;
-  }
-
-  assignBoatsToMembers() {
-    console.log("Assigning Boats")
-    for(const member of this.retrievedMembers) {
-      this.boatService.getBoatsByMemberId(member.id).subscribe( data => {
-          member.boatList = data
-        }
-      )
-    }
   }
 
   clearFilter() {
