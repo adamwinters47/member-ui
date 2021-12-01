@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "@auth0/auth0-angular";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
+    this.isLoggedIn()
+  }
+
+  isLoggedIn() {
+    this.auth.getAccessTokenSilently().subscribe()
+    this.auth.isAuthenticated$.subscribe()
   }
 
 }

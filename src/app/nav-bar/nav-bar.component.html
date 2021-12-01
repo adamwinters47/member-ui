@@ -3,7 +3,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <img src="assets/ocbc-logo.png" alt="Oklahoma Boat Club Logo" class="navbar-toggler-icon">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -13,20 +13,21 @@
         <a class="nav-link" routerLink="/members">Boat Club Members <span class="sr-only"></span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/addMember">Add New Member</a>
+          <a *ngIf="auth.isAuthenticated$ | async" class="nav-link" routerLink="/addMember">Add New Member</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/editMember">Edit Existing Member</a>
+        <a *ngIf="auth.isAuthenticated$ | async" class="nav-link" routerLink="/editMember">Edit Existing Member</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/addBoat">Add New Boat</a>
+        <a *ngIf="auth.isAuthenticated$ | async" class="nav-link" routerLink="/addBoat">Add New Boat</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/editBoat">Edit Existing Boat</a>
+        <a *ngIf="auth.isAuthenticated$ | async" class="nav-link" routerLink="/editBoat">Edit Existing Boat</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/assignSlip">Assign Boat To Slip</a>
+        <a *ngIf="auth.isAuthenticated$ | async" class="nav-link" routerLink="/assignSlip">Assign Boat To Slip</a>
       </li>
     </ul>
   </div>
+  <app-auth-button></app-auth-button>
 </nav>
