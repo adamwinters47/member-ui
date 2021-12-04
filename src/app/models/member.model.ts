@@ -18,6 +18,7 @@ export class Member {
   isCommitteeMember: boolean;
   committeeType: string;
   officeType: string;
+  yearOfficeHeld: string;
   annualDues: number;
   memberType: string;
   boatList: Boat[];

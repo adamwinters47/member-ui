@@ -106,6 +106,14 @@
                  placeholder="Enter Office held"
                  [hidden]="!isOfficeMember.checked">
 
+          <label for="yearOfficeHeld" [hidden]="!isOfficeMember.checked">Year Office Held</label>
+          <input type="text" [(ngModel)]="member.yearOfficeHeld"
+               class="form-control"
+               id="yearOfficeHeld"
+               name="yearOfficeHeld"
+               placeholder="Enter Year Office position is Held"
+               [hidden]="!isOfficeMember.checked">
+
           <label for="isCommitteeMember">Is Member Committee Member</label>
           <input type="checkbox" [(ngModel)]="member.isCommitteeMember"
                  class="form-control"

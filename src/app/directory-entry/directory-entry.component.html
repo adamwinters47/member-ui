@@ -15,6 +15,7 @@
         <span *ngIf="member.childrenNames"> {{member.childrenNames}} </span><br/>
         {{member.address}} <br/>
         {{member.memberType}} <br/>
+        <span *ngIf="member.officeType">{{member.officeType}}</span> <span *ngIf="member.yearOfficeHeld"> - {{ member.yearOfficeHeld }}</span>
         <ul class="list-group">
           <li class="list-group-item entry"
               *ngFor="let boat of member.boatList">

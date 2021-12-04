@@ -17,6 +17,7 @@ export class MemberDirectoryEntry {
   isCommitteeMember: boolean
   committeeType: string
   officeType: string
+  yearOfficeHeld: string
   annualDues: number;
   memberType: string;
   boatList: BoatDirectoryEntry[]
